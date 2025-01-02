@@ -4,6 +4,7 @@ import { Task } from "@/types/task";
 import { useRouter } from "next/router";
 import PageTemplate from "@/components/PageTemplate/PageTemplate";
 import { getAllTasks } from "@/api/task";
+import { AxiosError } from "axios";
 
 const MainPage = () => {
   const router = useRouter();
@@ -17,15 +18,16 @@ const MainPage = () => {
       setTasks(response.data.tasks);
 
       console.log(response);
-    } catch (err) {
-      if ((err.status = 401)) {
+    } catch (err: unknown) {
+      const error = err as AxiosError;
+
+      if (error.status === 401) {
         router.push("/login");
       }
 
       console.log(err);
     }
   };
-
   useEffect(() => {
     FetchTasks();
   }, []);
