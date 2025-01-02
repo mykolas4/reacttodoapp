@@ -8,29 +8,31 @@ import { AxiosError } from "axios";
 
 const MainPage = () => {
   const router = useRouter();
-
   const [tasks, setTasks] = useState<Task[]>([]);
 
-  const FetchTasks = async () => {
+  const fetchTasks = async () => {
     try {
       const response = await getAllTasks();
 
-      setTasks(response.data.tasks);
-
-      console.log(response);
+      if (response.data && response.data.tasks) {
+        setTasks(response.data.tasks);
+      } else {
+        console.error("Unexpected response structure:", response);
+      }
     } catch (err: unknown) {
       const error = err as AxiosError;
 
-      if (error.status === 401) {
+      if (error.response && error.response.status === 401) {
         router.push("/login");
+      } else {
+        console.error("Error fetching tasks:", err);
       }
-
-      console.log(err);
     }
   };
+
   useEffect(() => {
-    FetchTasks();
-  }, []);
+    fetchTasks();
+  }, []); //
 
   return (
     <PageTemplate>
