@@ -1,0 +1,47 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: 7px;
+}
+
+.content h1 {
+  font-size: 50px;
+}
+
+.points {
+  font-size: 50px;
+}
+
+.content button {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dangerBtn {
+  background-color: rgba(255, 0, 0, 0.703) !important;
+  color: white;
+  font-weight: 600;
+}
+
+
+.StatusWrapper {
+  width: 60px;
+}
+.StatusWrapper img {
+  width: 100%;
+}
+.buttonWrapper {
+  display: flex;
+  gap: 20px;
+}
+
+@media only screen and (max-width: 769px) {
+  .content h1 {
+    font-size: 30px;
+  }
+  .points {
+    font-size: 30px;
+  }
+}

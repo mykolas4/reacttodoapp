@@ -1,0 +1,98 @@
+.wrapper {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0px;
+  margin: 0 20px;
+  border-bottom: 1px solid rgb(130, 127, 127)
+}
+
+.title {
+  font-size: 150x;
+  font-weight: 600;
+}
+
+.title a {
+  text-decoration: none !important;
+  color: black;
+}
+
+.wrapper nav ul {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+}
+
+.wrapper nav ul li a {
+  text-decoration: none;
+}
+
+.wrapper button {
+  all: unset;
+  width: 50px;
+  cursor: pointer;
+  display: none;
+}
+
+.wrapper button img {
+  width: 100%;
+}
+
+.overlay {
+  position: fixed;
+  background-color: rgb(101, 129, 120);
+  height: calc(100vh - 80px);
+  width: 100%;
+  left: 1000px;
+  top: 80px;
+  transition: 0.5s;
+
+  display: none;
+}
+
+.overlayOpen {
+  left: 0px;
+}
+.mobileNav ul {
+  flex-direction: column;
+  margin-top: 100px;
+}
+.mobileNav ul li {
+  display: flex;
+  justify-content: center;
+}
+
+.mobileNav ul li a {
+  font-size: 20px;
+}
+
+.logOutBtn {
+  display: inline-block !important;
+  width: 25px !important;
+}
+
+.logOutBtn img {
+  width: 100%;
+}
+
+.dekstopNav ul {
+  align-items: center;
+}
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    position: sticky;
+    top: 0px;
+  }
+  .wrapper button {
+    display: inline-block !important;
+  }
+
+  .dekstopNav nav {
+    display: none;
+  }
+  .overlay {
+    display: inline-block;
+  }
+}
